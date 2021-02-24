@@ -1,4 +1,4 @@
-const apiKey = '43a30ec4644c4472968a71804728a964';
+const apiKey = 'ab4e7e59e4124d54bb72e2c3fef25476';
 
 // I have used react-bootstrap for quicker development experience.  I personally use npm and cdn packages quaite often (that's why I love React Native also), but there is no reason why this could't be written in normal bootrap for lower bundle size :)
 
@@ -68,55 +68,53 @@ const App = props => {
   }, [keyword]);
 
   return (
-      <BS.Container>
-        <BS.Form>
-          <BS.Form.Group controlId="formGroupEmail">
-            <BS.Form.Label>Search you news:</BS.Form.Label>
-            <BS.Form.Control
-              value={keyword}
-              onChange={e => {
-                setLoading(true);
-                setKeyword(e.target.value);
-              }}
-              type="email"
-              placeholder="Enter email"
-            />
-          </BS.Form.Group>
-        </BS.Form>
-        <BS.Row>
-          {fetchedNews && !loading
-            ? fetchedNews.map(card => (
-                <BS.Col
-                  xs={12}
-                  md={6}
-                  lg={4}
-                  className="d-flex align-items-stretch"
-                >
-                  <Card
-                    title={card.title ? card.title : ''}
-                    author={card.author ? card.author : ' s'}
-                    description={
-                      card.description
-                        ? shortDescriptionHandler(card.description, 150)
-                        : ''
-                    }
-                    imageUrl={
-                      card.urlToImage
-                        ? card.urlToImage
-                        : 'assets/no_picture.jpg'
-                    }
-                    link={card.url ? card.url : ''}
-                  />
-                </BS.Col>
-              ))
-            : keyword !== ''
-            ? !error && <h1>Loading...</h1>
-            : !error && (
-                <h2>Please type something that interest you in search bar</h2>
-              )}
-        </BS.Row>
-        {error && <BS.Alert variant="danger">{error.message}</BS.Alert>}
-      </BS.Container>
+    <BS.Container>
+      <BS.Form>
+        <BS.Form.Group controlId="formGroupEmail">
+          <BS.Form.Label>Search you news:</BS.Form.Label>
+          <BS.Form.Control
+            value={keyword}
+            onChange={e => {
+              setLoading(true);
+              setKeyword(e.target.value);
+            }}
+            type="email"
+            placeholder="Enter email"
+          />
+        </BS.Form.Group>
+      </BS.Form>
+      <BS.Row>
+        {fetchedNews && !loading
+          ? fetchedNews.map(card => (
+              <BS.Col
+                xs={12}
+                md={6}
+                lg={4}
+                className="d-flex align-items-stretch"
+              >
+                <Card
+                  title={card.title ? card.title : ''}
+                  author={card.author ? card.author : ' s'}
+                  description={
+                    card.description
+                      ? shortDescriptionHandler(card.description, 150)
+                      : ''
+                  }
+                  imageUrl={
+                    card.urlToImage ? card.urlToImage : 'assets/no_picture.jpg'
+                  }
+                  link={card.url ? card.url : ''}
+                />
+              </BS.Col>
+            ))
+          : keyword !== ''
+          ? !error && <h1>Loading...</h1>
+          : !error && (
+              <h2>Please type something that interest you in search bar</h2>
+            )}
+      </BS.Row>
+      {error && <BS.Alert variant="danger">{error.message}</BS.Alert>}
+    </BS.Container>
   );
 };
 
