@@ -68,7 +68,6 @@ const App = props => {
   }, [keyword]);
 
   return (
-    <div>
       <BS.Container>
         <BS.Form>
           <BS.Form.Group controlId="formGroupEmail">
@@ -118,7 +117,6 @@ const App = props => {
         </BS.Row>
         {error && <BS.Alert variant="danger">{error.message}</BS.Alert>}
       </BS.Container>
-    </div>
   );
 };
 
