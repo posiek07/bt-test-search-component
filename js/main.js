@@ -70,7 +70,7 @@ const App = props => {
   return (
     <BS.Container>
       <BS.Form>
-        <BS.Form.Group controlId="formGroupEmail">
+        <BS.Form.Group controlId="SearchNews">
           <BS.Form.Label>Search you news:</BS.Form.Label>
           <BS.Form.Control
             value={keyword}
@@ -78,8 +78,8 @@ const App = props => {
               setLoading(true);
               setKeyword(e.target.value);
             }}
-            type="email"
-            placeholder="Enter email"
+            type="text"
+            placeholder="Please search..."
           />
         </BS.Form.Group>
       </BS.Form>
