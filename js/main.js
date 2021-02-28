@@ -94,7 +94,7 @@ const App = props => {
               >
                 <Card
                   title={card.title ? card.title : ''}
-                  author={card.author ? card.author : ' s'}
+                  author={card.author ? card.author : ''}
                   description={
                     card.description
                       ? shortDescriptionHandler(card.description, 150)
